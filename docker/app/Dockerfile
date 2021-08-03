@@ -1,9 +1,14 @@
-FROM php:8.1.0alpha3-fpm-buster
+FROM php:8.0-fpm-buster
 
 COPY php.ini /user/local/etc/php/
 
 RUN apt update
 RUN apt install -y wget git unzip libpq-dev
+
+# Set env
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
+COPY --from=composer:2.1.3 /usr/bin/composer /usr/bin/composer
 
 # Install Node.js 12
 RUN apt install -y npm \
@@ -13,11 +18,6 @@ RUN apt install -y npm \
 # Install PHP Extensions
 RUN apt install -y zlib1g-dev mariadb-client libzip-dev libonig-dev \
     && docker-php-ext-install zip pdo_mysql
-
-# Install Composer
-RUN curl -sS https://getcomposer.org/installer | php \
-    && mv composer.phar /usr/local/bin/composer \
-    && composer self-update
 
 WORKDIR /var/www
 

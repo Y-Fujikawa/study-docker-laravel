@@ -1,17 +1,11 @@
 version: '3.8'
 
-volumes:
-    vendor-store:
-    node_modules-store:
-
 services:
-    php:
-        container_name: php
+    app:
+        container_name: app
         build: ./docker/app
         volumes:
             - ./src:/var/www
-            - vendor-store:/var/www/laravel/vendor
-            - node_modules-store:/var/www/laravel/node_modules
         environment:
             TZ: Asia/Tokyo
 
