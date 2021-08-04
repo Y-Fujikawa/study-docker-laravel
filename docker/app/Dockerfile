@@ -21,7 +21,7 @@ RUN apt install -y zlib1g-dev mariadb-client libzip-dev libonig-dev \
 
 COPY ./php-fpm.d/zzz-www.conf /usr/local/etc/php-fpm.d/zzz-www.conf
 
-WORKDIR /var/www
+WORKDIR /var/www/laravel
 
 RUN composer global require "laravel/installer"
 

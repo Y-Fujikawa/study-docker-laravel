@@ -17,7 +17,10 @@ services:
               volume:
                   nocopy: true
         environment:
-            TZ: Asia/Tokyo
+            - TZ=Asia/Tokyo
+            - DB_CONNECTION=mysql
+            - DB_HOST=db
+            - DB_PORT=3306
 
     nginx:
         image: nginx
