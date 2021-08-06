@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\TestController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Laravel 7までの書き方
+// Route::get('test', 'TestAPIController@index');
+
+// Laravel 8からの書き方
+Route::get('/test', [TestController::class, 'index']);
