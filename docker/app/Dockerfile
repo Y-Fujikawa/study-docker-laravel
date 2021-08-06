@@ -3,7 +3,7 @@ FROM php:8.0-fpm-buster
 COPY php.ini /user/local/etc/php/
 
 RUN apt update
-RUN apt install -y wget git unzip libpq-dev
+RUN apt install -y wget git unzip libpq-dev vim gnupg2
 
 # Set env
 ENV COMPOSER_ALLOW_SUPERUSER=1
