@@ -27,7 +27,7 @@ class LoginTest extends TestCase
      */
     public function testNoLoginAccess()
     {
-        $response = $this->get('/home');
+        $response = $this->get('/');
         $response->assertStatus(302)
                  ->assertRedirect('/login');
         $this->assertGuest();
