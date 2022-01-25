@@ -22,5 +22,5 @@ apt-get update
 apt-get install google-chrome-stable
 ```
 
-2. `php artisan serve --env=dusk.local` を実行する。
-3. 別タブを開き `php artisan dusk` を実行する。
+2. appのDockerにログインした後 `php artisan serve` を実行する。
+3. 別ウィンドウを開き、appのDockerにログインした後 `php artisan dusk` を実行する。
